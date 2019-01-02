@@ -1,7 +1,7 @@
 # How is binary search useful?
-Well, just by itself, it's not. The example code already knows the secret_value, so there is absolutely no need to deduce it. But there are certain scenario's where one might not actually know the secret_value. Then this little algorithm gets radically more interesting. 
+Well, just by itself, it's not. The supplied example code already shows the secret_value, so there is absolutely no need to deduce it. But there are certain scenario's where one might not actually know the secret_value. Then this little algorithm gets radically more interesting. 
 
-For example, consider this rather common sql query which is uses in many webapplications:
+Consider this rather common sql query which is uses in many webapplications:
 
 ```sql
 SELECT x,y FROM z WHERE z.id=10 
