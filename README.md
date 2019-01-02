@@ -1,5 +1,7 @@
-# binarysearch
-This is a python implementation of a uniform binary search algoritm. But instead of classic array searching, it it looks for an integer value within a given range. It's basically a programmatic version of the childs game 'Guess my number'. One person thinks of a number below 100 and the other one tries to guess it with 7 simple yes/now questions.
+# Binarysearch
+This is a python implementation of a uniform binary search algoritm. But instead of classic array searching, it it looks for an integer value within a given range. 
+
+It's basically a programmatic version of the childs game 'Guess my number'. One person thinks of a number below 100 and the other one tries to guess it with 7 simple yes/now questions. You can try it by calling BinarySearchTestcases.manual_binsearch().
 
 ```
 > python -i
@@ -17,7 +19,7 @@ I will guess it after you answer 7 simple yes/no questions.
 Your number was 67
 ```
 
-# example code
+# Example code
 ```python
 from binsearch import binary_search
   
@@ -29,7 +31,7 @@ result = binary_search(test, 0, 100)
 print(result); # 42...
 ```
 
-# running the tests
+# Running the tests
 I've included a couple of tests, which you can run with this command:
 ```bash
 > python -m unittest binsearch_test.py -v
