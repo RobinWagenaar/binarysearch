@@ -39,19 +39,19 @@ AND IF(
 ```
 The inner SELECT may return any string, in this case, a concatenation of all table names. Then the IF-statement tests if the first character of this string is equal to 41 (which is the ascii value for 'a'). If this is the case, the database will go sleepy-time for 3 seconds. So, this means that if the website is responding fast, we guessed the first letter wrong. We monitor the response-times closely to see if we have guessed correctly.
 
-Next we query for 'b', 'c', 'd', etc. And once we found the winner, we increment the SUBSTRING-index and continue with the second character, and so on and so forth, until we know the entire string. You will eventually expose the complete string, but it may take a sweet while. Not only do we need to try all a-z and A-Z, but also a bunch of special characters (about 64 in total).
+Next we query for 'b', 'c', 'd', etc. And once we found the winner, we increment the SUBSTRING-index and continue with the second character, and so on and so forth, until we know the entire string. You will eventually expose the complete string, but it may take a sweet while. Not only do we need to try all a-z, A-Z and 0-9, but also a bunch of special characters (about 100 in total).
 
 Lets say that the webpage responds within 0.5 seconds. But if it takes longer than 3, we can safely conclude that we found the correct character. Now we estimate the time needed for a SMS-message sized string (160 characters):
 ```math
-~32 wrong guesses * 0.5 sec per wrong guess =  16 seconds
+avg of 50 wrong guesses * 0.5 sec per wrong guess =  25 seconds
 1 correct guess * 3 sec per correct guess = 3 seconds
-(16 + 3) * 160 characters = 3040 sec = about 50 minutes
+(25 + 3) * 160 characters = 4480 sec = about 74 minutes
 ```
-My life is too short to wait for this. So I wrote binary search in the meanwhile. With binary search, you can find any value within a range of 64 values in 6 guesses. About half of the guesses will be correct and therefor slow. 
+My life is too short to wait for this. So I wrote binary search in the meanwhile. With binary search, you can find any value within a range of 128 values in just 7 guesses. But about half of the guesses will be correct, and thus, slow. 
 ```
-3 * 3 seconds = 9 seconds for incorrect guesses
-3 * 0.5 second = 1.5 second for the correct guesses
-(9 + 1.5) * 160 characters = 1680 seconds = 28 minutes.
+avg of 3.5 wrong guesses * 3 seconds = 11.5 seconds for incorrect guesses
+avg of 3.5 right guesses * 0.5 second = 1.75 seconds
+(11.5 + 1.75) * 160 characters = 2120 seconds = 35 minutes.
 ```
-As you can see, in a real world scenario, applying a binary search algorithm may significantly speed up the guessing process. Also the total number of requests is reduced from 5280 to 960. 
+As you can see, in a real world scenario, applying a binary search algorithm may speed up the guessing process by more than 200%. Also the total number of requests is reduced from 8160 to 1120. It's still noisy as hell. But it's much less likely to accidentaly overload the server.
 
