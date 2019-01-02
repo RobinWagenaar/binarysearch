@@ -2,8 +2,8 @@
 This is a python implementation of a uniform binary search algoritm. But instead of classic array searching, it it looks for an integer value within a given range. It's basically a programmatic version of the childs game 'Guess my number'. One person thinks of a number below 100 and the other one tries to guess it with 7 simple yes/now questions.
 
 <code>
-> python -i
->>> from binsearch_test import BinarySearchTestcases
+\> python -i
+\>\>\> from binsearch_test import BinarySearchTestcases
 >>> BinarySearchTestcases.manual_binsearch()
 Think of a number between 0 and 100.
 I will guess it after you answer 7 simple yes/no questions.
