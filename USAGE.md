@@ -69,8 +69,8 @@ Life is too short to leave this unoptimized. Luckily, with binary search, you ca
 any value within a range of 128 values in just 7 guesses. But about half of these guesses 
 will be correct, and thus, slow. 
 ```
-avg of 3.5 wrong guesses per char * 3 seconds = 11.5 seconds for incorrect guesses
-avg of 3.5 right guesses per char * 0.5 second = 1.75 seconds
+avg of (7/2) wrong guesses per char * 3 seconds = 11.5 seconds for incorrect guesses
+avg of (7/2) right guesses per char * 0.5 second = 1.75 seconds
 (11.5 + 1.75) * 160 characters = 2120 seconds = 35 minutes.
 ```
 As you can see, in this scenario, applying a binary search algorithm may speed up the 
