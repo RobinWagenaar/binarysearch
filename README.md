@@ -43,3 +43,11 @@ Ran 2 tests in 0.000s
 
 OK
 ```
+
+# How is binary search useful?
+Just by itself, it is not. The example above already shows the secret_value, 
+so there is no need to deduce it. But there are certain scenario's where one 
+might not actually know the secret_value. Then this little algorithm gets 
+radically more interesting. 
+
+A real world example can be found [here](https://github.com/RobinWagenaar/binarysearch/blob/master/USAGE.md). 
