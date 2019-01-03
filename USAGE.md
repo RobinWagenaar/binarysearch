@@ -71,7 +71,7 @@ will be correct, and thus, slow.
 ```
 avg of (7/2) wrong guesses per char * 3 seconds = 11.5 seconds for incorrect guesses
 avg of (7/2) right guesses per char * 0.5 second = 1.75 seconds
-(11.5 + 1.75) * 160 characters = 2120 seconds = 35 minutes.
+(11.5 + 1.75) * 160 characters = 2120 seconds = about 35 minutes.
 ```
 As you can see, in this scenario, applying a binary search algorithm may speed up the 
 guessing process by over 200%. Also the total number of requests is reduced from 8160 
