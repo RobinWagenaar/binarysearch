@@ -43,14 +43,14 @@ class BinarySearchTestcases(unittest.TestCase):
                     return False
                 else:
                     print("Invalid answer. Please answer y or n.")
-            print("Too many invalid answers were given. Exitting..")
+            print("Too many invalid answers were given. Exiting..")
             exit()
 
         result = binary_search(manual_testfn, 0, 100)
         print("Your number was " + str(result))
 
 
-#BinarySearchTestcases.manual_binsearch()
+# BinarySearchTestcases.manual_binsearch()
 
 if __name__ == '__main__':
     unittest.main()
