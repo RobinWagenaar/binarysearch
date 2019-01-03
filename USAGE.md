@@ -1,6 +1,10 @@
 # Real world example
-Consider this rather common sql query which is uses in many webapplications:
 
+As mentioned in README.md, this little piece of code is only useful when 
+the value you're looking for is not yet known. As is the case in, for example, 
+blind time-based SQL-injections.  
+
+Consider this rather common sql query which is uses in many webapplications:
 ```sql
 SELECT x,y FROM z WHERE z.id=10 
 ```
