@@ -77,8 +77,7 @@ avg of (7/2) right guesses per char * 0.5 second = 1.75 seconds
 (11.5 + 1.75) * 160 characters = 2120 seconds = about 35 minutes.
 ```
 As you can see, in this scenario, applying a binary search algorithm may speed up the 
-guessing process by over 200%. Also the total number of requests is reduced from 8160 
-to 1120. It's still noisy as hell. But it's much less likely to accidentaly overload 
-the server.
+guessing process by over 200%. Also worth considering, is that the total number of 
+requests is reduced from 8160 to 1120. Yes, it indeed is still noisy as hell. 
 
 Running more threads concurrently will improve performance even further.
