@@ -10,7 +10,7 @@ SELECT x,y FROM z WHERE z.id=10
 ```
 
 The value '10' is supplied by the user. If this value is not properly validated 
-or sanitized, any innocent bystander might make a typo in the URL-bar and 
+or sanitized, any innocent bystander could make a typo in the URL-bar and 
 accidentally turn the query into this:
 
 ```sql
@@ -18,15 +18,14 @@ SELECT x,y
 FROM z 
 WHERE z.id=10 
 UNION SELECT 1,GROUP_CONCAT(table_name) 
-  FROM information_scheme.tables 
+  FROM information_schema.tables 
   WHERE table_schema = database()
 ```
 
-Unfortunately, quite often, the webpage does not show the results of the query 
-directly. This oversight severely limits the webpages functionality. But surely, 
-it doesn't need to stay that way. 
-
-Consider the following (convoluted) query carefully:
+However, sometimes the webpage does not actually display the results of the query 
+directly. This oversight severely limits the webpages' functionality. However, we 
+may still be able to fix it by applying a bit of elbow grease. Please consider the 
+following (convoluted) query carefully:
 
 ```sql
 SELECT x,y 
@@ -82,3 +81,4 @@ guessing process by over 200%. Also the total number of requests is reduced from
 to 1120. It's still noisy as hell. But it's much less likely to accidentaly overload 
 the server.
 
+Running more threads concurrently will improve performance even further.
