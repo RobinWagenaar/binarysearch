@@ -16,12 +16,12 @@ def binary_search(testfn, minimum=0, maximum=128):
             return secret_value < tested_value
 
     """
-    num_guesses = math.ceil(math.log(maximum - minimum, 2.0))
+    last_guess = math.ceil(math.log(maximum - minimum, 2.0))
 
-    for guess in range(1,num_guesses+1):
+    for this_guess in range(1,last_guess+1):
         midpoint = maximum - int((maximum - minimum) / 2)
 
-        if guess == num_guesses:
+        if this_guess == last_guess:
             return midpoint - 1 if testfn(midpoint) else midpoint
         elif testfn(midpoint):
             maximum = midpoint - 1
